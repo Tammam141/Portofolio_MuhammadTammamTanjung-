@@ -5,453 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tammam Tanjung - Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portofolio Muhammad Tammam Tanjung - Versatile Software Developer. Keahlian di Web Development, IoT, dan AI.">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-color: #f8fafc;
-            --surface-color: #ffffff;
-            --surface-hover: #f1f5f9;
-            --primary-accent: #6366f1;
-            /* Indigo */
-            --primary-hover: #4f46e5;
-            --text-main: #0f172a;
-            --text-muted: #475569;
-            --font-heading: 'Outfit', sans-serif;
-            --font-body: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-body);
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        .navbar-brand {
-            font-family: var(--font-heading);
-            font-weight: 600;
-        }
-
-        /* Navbar */
-        .navbar {
-            transition: all 0.3s ease;
-            padding: 1.5rem 0;
-            background-color: transparent;
-        }
-
-        .navbar.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--text-main) !important;
-            letter-spacing: -0.5px;
-        }
-
-        .navbar-brand span {
-            color: var(--primary-accent);
-        }
-
-        .nav-link {
-            color: var(--text-muted) !important;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-accent) !important;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 50%;
-            background-color: var(--primary-accent);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 80%;
-        }
-
-        /* Buttons */
-        .btn-primary-custom {
-            background-color: var(--primary-accent);
-            color: #ffffff;
-            font-weight: 600;
-            border: none;
-            padding: 0.75rem 1.75rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary-custom:hover {
-            background-color: var(--primary-hover);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-outline-custom {
-            background-color: transparent;
-            color: var(--primary-accent);
-            font-weight: 600;
-            border: 2px solid var(--primary-accent);
-            padding: 0.75rem 1.75rem;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline-custom:hover {
-            background-color: var(--primary-accent);
-            color: #ffffff;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
-        }
-
-        /* Sections */
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 50%;
-            height: 4px;
-            background-color: var(--primary-accent);
-            bottom: -10px;
-            left: 0;
-            border-radius: 2px;
-        }
-
-        /* Hero Section */
-        #beranda {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            padding-top: 120px;
-        }
-
-        .hero-greeting {
-            color: var(--primary-accent);
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-
-        .hero-role {
-            font-size: 1.75rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-desc {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .hero-img-wrapper {
-            position: relative;
-            display: inline-block;
-            border-radius: 50%;
-            padding: 10px;
-            background: linear-gradient(135deg, var(--primary-accent) 0%, transparent 100%);
-            animation: pulse-border 3s infinite;
-        }
-
-        .hero-img {
-            width: 100%;
-            max-width: 380px;
-            border-radius: 50%;
-            border: 5px solid var(--surface-color);
-            background-color: var(--surface-color);
-            object-fit: cover;
-            aspect-ratio: 1 / 1;
-        }
-
-        @keyframes pulse-border {
-            0% {
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 20px rgba(99, 102, 241, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
-            }
-        }
-
-        /* About Section */
-        #tentang p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-muted);
-        }
-
-        /* Skills Section */
-        .skill-category {
-            background-color: var(--surface-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            height: 100%;
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-        }
-
-        .skill-category h4 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-main);
-        }
-
-        .skill-badge {
-            background-color: rgba(99, 102, 241, 0.1);
-            color: var(--primary-accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            display: inline-block;
-            margin: 0.25rem;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .skill-badge:hover {
-            background-color: var(--primary-accent);
-            color: #ffffff;
-        }
-
-        /* Education */
-        .timeline-item {
-            background-color: var(--surface-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary-accent);
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(5px);
-        }
-
-        .timeline-date {
-            color: var(--primary-accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        /* Projects Section */
-        .project-card {
-            background-color: var(--surface-color);
-            border-radius: 1rem;
-            overflow: hidden;
-            height: 100%;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            border-color: rgba(99, 102, 241, 0.3);
-        }
-
-        .project-icon-wrapper {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(99, 102, 241, 0) 100%);
-            padding: 3rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .project-icon-wrapper i {
-            font-size: 3.5rem;
-            color: var(--primary-accent);
-        }
-
-        .project-body {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-card {
-            background-color: var(--surface-color);
-            padding: 3rem;
-            border-radius: 1rem;
-            text-align: center;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .contact-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            margin: 0.5rem;
-        }
-
-        .btn-wa {
-            background-color: #25D366;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-wa:hover {
-            background-color: #1ebd5a;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .btn-email {
-            background-color: #ea4335;
-            color: #fff;
-            border: none;
-        }
-
-        .btn-email:hover {
-            background-color: #d33828;
-            color: #fff;
-            transform: translateY(-2px);
-        }
-
-        .social-links {
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(0, 0, 0, 0.05);
-            color: var(--text-main);
-            font-size: 1.25rem;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .social-link:hover {
-            background-color: var(--primary-accent);
-            color: #ffffff;
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            padding: 2rem 0;
-            text-align: center;
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-            color: var(--text-muted);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-role {
-                font-size: 1.25rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .contact-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .navbar-toggler {
-                border-color: transparent !important;
-                box-shadow: none !important;
-            }
-        }
-    </style>
+    <!-- Custom Premium CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="100" tabindex="0">
@@ -459,13 +32,13 @@
     <!-- Navbar -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#beranda">Tammam <span>Tanjung</span></a>
+            <a class="navbar-brand" href="#beranda" data-aos="fade-right">Tammam <span>Tanjung</span></a>
             <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars fs-4" style="color: var(--text-main);"></i>
+                aria-label="Toggle navigation" data-aos="fade-left">
+                <i class="fa-solid fa-bars fs-4"></i>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" data-aos="fade-left" data-aos-delay="100">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#beranda">Beranda</a>
@@ -494,27 +67,28 @@
     <section id="beranda">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-7 order-2 order-lg-1 mt-5 mt-lg-0">
-                    <span class="hero-greeting">Halo, Saya</span>
+                <div class="col-lg-7 order-2 order-lg-1 mt-5 mt-lg-0" data-aos="fade-up" data-aos-duration="1000">
+                    <span class="hero-greeting"><i class="fa-solid fa-hand-wave me-2"></i> Halo, Saya</span>
                     <h1 class="hero-title">Muhammad Tammam Tanjung</h1>
-                    <h2 class="hero-role">Mahasiswa Teknik Informatika <br> <span
-                            style="color: var(--primary-accent);">Versatile Software Developer</span></h2>
+                    <h2 class="hero-role">Mahasiswa Teknik Informatika <br> 
+                        <span class="text-gradient">Versatile Software Developer</span>
+                    </h2>
                     <p class="hero-desc">
                         Menggabungkan keahlian Web Development, Internet of Things (IoT), dan Artificial Intelligence
-                        untuk menciptakan solusi sistem yang komprehensif.
+                        untuk menciptakan solusi sistem yang komprehensif, dinamis, dan terintegrasi.
                     </p>
                     <div class="d-flex flex-wrap gap-3">
-                        <a href="#proyek" class="btn btn-primary-custom">Lihat Proyek <i
-                                class="fa-solid fa-arrow-right ms-2"></i></a>
+                        <a href="#proyek" class="btn btn-primary-custom">
+                            Lihat Proyek <i class="fa-solid fa-arrow-right ms-2"></i>
+                        </a>
                         <a href="#kontak" class="btn btn-outline-custom">Hubungi Saya</a>
                         <a href="CV_Muhammad Tammam Tanjung.pdf" target="_blank" class="btn btn-outline-custom">
                             <i class="fa-solid fa-download me-2"></i>Unduh CV
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-5 order-1 order-lg-2 text-center">
+                <div class="col-lg-5 order-1 order-lg-2 text-center" data-aos="zoom-in" data-aos-duration="1200">
                     <div class="hero-img-wrapper">
-                        <!-- Ganti URL di src ini dengan path file foto asli Anda (contoh: assets/img/foto.jpg) -->
                         <img src="tammam.jpeg" alt="Foto Profil Tammam Tanjung" class="img-fluid hero-img">
                     </div>
                 </div>
@@ -526,17 +100,19 @@
     <section id="tentang">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title">Tentang Saya</h2>
-                    <p class="mt-4">
-                        Mahasiswa Teknik Informatika di Politeknik Negeri Jakarta (Kerjasama CCIT-PNJ) dengan profil
-                        sebagai pengembang perangkat lunak yang serbaguna (versatile developer). Berpengalaman dalam
-                        membangun aplikasi web menggunakan Python (FastAPI/Flask) dan integrasi database.
-                    </p>
-                    <p>
-                        Memiliki minat kuat pada teknologi Internet of Things (IoT), Data Mining, dan pengolahan data.
-                        Terbiasa menyelesaikan masalah teknis yang kompleks dan merancang arsitektur sistem dari awal.
-                    </p>
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title text-gradient" data-aos="fade-up">Tentang Saya</h2>
+                    <div class="about-glass" data-aos="fade-up" data-aos-delay="200">
+                        <p class="mb-4">
+                            Mahasiswa Teknik Informatika di Politeknik Negeri Jakarta (Kerjasama CCIT-PNJ) dengan profil
+                            sebagai pengembang perangkat lunak yang serbaguna (versatile developer). Berpengalaman dalam
+                            membangun aplikasi web menggunakan Python (FastAPI/Flask) dan integrasi database tingkat lanjut.
+                        </p>
+                        <p class="mb-0">
+                            Memiliki minat kuat pada teknologi Internet of Things (IoT), Data Mining, dan pengolahan data.
+                            Selalu antusias dalam menyelesaikan masalah teknis yang kompleks dan merancang arsitektur sistem dari awal.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -545,12 +121,17 @@
     <!-- Skills Section -->
     <section id="keahlian">
         <div class="container">
-            <h2 class="section-title mb-5">Keahlian</h2>
-            <div class="row g-4">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-gradient">Keahlian & Teknologi</h2>
+            </div>
+            <div class="row g-4 mt-2">
                 <!-- Skill 1 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-code text-info me-2"></i> Pemrograman</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-code"></i></div>
+                            Pemrograman
+                        </h4>
                         <div>
                             <span class="skill-badge">Java</span>
                             <span class="skill-badge">Python</span>
@@ -561,9 +142,12 @@
                     </div>
                 </div>
                 <!-- Skill 2 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-layer-group text-info me-2"></i> Framework & Deployment</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-layer-group"></i></div>
+                            Framework & Deploy
+                        </h4>
                         <div>
                             <span class="skill-badge">FastAPI</span>
                             <span class="skill-badge">Flask</span>
@@ -574,20 +158,27 @@
                     </div>
                 </div>
                 <!-- Skill 3 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-database text-info me-2"></i> Basis Data</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-database"></i></div>
+                            Basis Data
+                        </h4>
                         <div>
                             <span class="skill-badge">SQL</span>
                             <span class="skill-badge">PostgreSQL</span>
                             <span class="skill-badge">Supabase</span>
+                            <span class="skill-badge">MySQL</span>
                         </div>
                     </div>
                 </div>
                 <!-- Skill 4 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-sitemap text-info me-2"></i> Analisis & Desain Sistem</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-sitemap"></i></div>
+                            Desain Sistem
+                        </h4>
                         <div>
                             <span class="skill-badge">UML</span>
                             <span class="skill-badge">Flowchart</span>
@@ -597,9 +188,12 @@
                     </div>
                 </div>
                 <!-- Skill 5 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-microchip text-info me-2"></i> IoT & Hardware</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-microchip"></i></div>
+                            IoT & Hardware
+                        </h4>
                         <div>
                             <span class="skill-badge">MQ-2</span>
                             <span class="skill-badge">DHT22</span>
@@ -610,9 +204,12 @@
                     </div>
                 </div>
                 <!-- Skill 6 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="600">
                     <div class="skill-category">
-                        <h4><i class="fa-solid fa-brain text-info me-2"></i> AI & Data</h4>
+                        <h4>
+                            <div class="skill-icon-wrapper"><i class="fa-solid fa-brain"></i></div>
+                            AI & Data
+                        </h4>
                         <div>
                             <span class="skill-badge">YOLOv8</span>
                             <span class="skill-badge">NLP</span>
@@ -628,26 +225,32 @@
     <!-- Education & Certification Section -->
     <section id="pendidikan">
         <div class="container">
-            <h2 class="section-title mb-5">Pendidikan & Sertifikasi</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <h3 class="h4 mb-4"><i class="fa-solid fa-graduation-cap text-info me-2"></i> Pendidikan Formal</h3>
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-gradient">Pendidikan & Sertifikasi</h2>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                    <h3 class="h4 mb-4 d-flex align-items-center">
+                        <i class="fa-solid fa-graduation-cap text-gradient me-3 fs-3"></i> Pendidikan Formal
+                    </h3>
                     <div class="timeline-item">
                         <span class="timeline-date">2024 - Sekarang</span>
-                        <h4 class="h5">Politeknik Negeri Jakarta (PNJ)</h4>
+                        <h4 class="h5 font-heading text-white">Politeknik Negeri Jakarta (PNJ)</h4>
                         <p class="text-muted mb-0">Kerjasama CCIT - Teknik Informatika</p>
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-date">2024 - 2025</span>
-                        <h4 class="h5">NIIT Professional Diploma Program</h4>
+                        <h4 class="h5 font-heading text-white">NIIT Professional Diploma Program</h4>
                         <p class="text-muted mb-0">Java Software Engineering</p>
                     </div>
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <h3 class="h4 mb-4"><i class="fa-solid fa-certificate text-info me-2"></i> Sertifikasi</h3>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="h4 mb-4 d-flex align-items-center">
+                        <i class="fa-solid fa-certificate text-gradient me-3 fs-3"></i> Sertifikasi
+                    </h3>
                     <div class="timeline-item">
                         <span class="timeline-date">Tersertifikasi</span>
-                        <h4 class="h5">CCIT FTUI</h4>
+                        <h4 class="h5 font-heading text-white">CCIT FTUI</h4>
                         <p class="text-muted mb-0">Program Professional Fullstack Developer</p>
                     </div>
                 </div>
@@ -658,71 +261,72 @@
     <!-- Projects Section -->
     <section id="proyek">
         <div class="container">
-            <h2 class="section-title mb-5">Proyek</h2>
-            <div class="row g-4">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="section-title text-gradient">Karya & Proyek</h2>
+            </div>
+            <div class="row g-4 mt-2">
                 <!-- Project 1 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
                         <div class="project-icon-wrapper">
                             <i class="fa-solid fa-fire-flame-curved"></i>
-                            <i class="fa-solid fa-robot ms-2"></i>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Sistem Deteksi Kebakaran Dini Berbasis IoT & AI</h3>
                             <p class="project-desc">Merakit ESP32-CAM dengan sensor MQ-2, DHT22, PIR. Menggunakan YOLOv8
                                 untuk Computer Vision (deteksi api/asap) dan NLP untuk fitur peringkas berita kebakaran.
                             </p>
+                            <a href="https://www.bombaai.site/" target="_blank" class="project-link">Kunjungi Web <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
                         <div class="project-icon-wrapper">
                             <i class="fa-solid fa-globe"></i>
-                            <i class="fa-regular fa-image ms-2"></i>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Web Gagasan</h3>
                             <p class="project-desc">Platform repositori proyek web terpusat yang di-deploy via Vercel.
                                 Menggunakan pustaka Pillow/PIL untuk pemrosesan gambar digital.</p>
+                            <a href="https://github.com/jaklon/repositori_gagasan.git" target="_blank" class="project-link">Lihat Repositori <i class="fa-brands fa-github ms-1"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-card">
                         <div class="project-icon-wrapper">
                             <i class="fa-solid fa-user-graduate"></i>
-                            <i class="fa-solid fa-database ms-2"></i>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Aplikasi Web ProdiKu</h3>
                             <p class="project-desc">Aplikasi web full-stack untuk survei preferensi prodi dan pelacakan
                                 inventaris menggunakan Flask, SQLAlchemy, dan Supabase.</p>
+                            <a href="https://github.com/Tammam141/Prodiku.git" target="_blank" class="project-link">Lihat Repositori <i class="fa-brands fa-github ms-1"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project 4 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-card">
                         <div class="project-icon-wrapper">
                             <i class="fa-solid fa-store"></i>
-                            <i class="fa-solid fa-box-open ms-2"></i>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Web Katalog NDA Official Store</h3>
                             <p class="project-desc">Pembuatan web katalog interaktif dan sistem tracking inventaris
                                 dengan formula Excel tingkat lanjut.</p>
+                            <a href="https://ndaofficial.vercel.app/" target="_blank" class="project-link">Kunjungi Web <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- Project 5 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
                     <div class="project-card">
                         <div class="project-icon-wrapper">
                             <i class="fa-solid fa-laptop-code"></i>
-                            <i class="fa-solid fa-diagram-project ms-2"></i>
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Pengembangan Proyek Web Terapan</h3>
@@ -739,28 +343,32 @@
     <section id="kontak">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title mb-5 text-center" style="width: 100%;">Hubungi Saya</h2>
-                    <div class="contact-card">
-                        <h3 class="mb-4 h4">Mari Berkolaborasi!</h3>
-                        <p class="text-muted mb-5">Tertarik dengan profil saya atau memiliki proyek yang bisa kita
-                            kerjakan bersama? Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.</p>
+                <div class="col-lg-9 mx-auto">
+                    <div class="contact-card" data-aos="zoom-in" data-aos-duration="1000">
+                        <h2 class="section-title text-gradient mb-4">Mari Berkolaborasi!</h2>
+                        <p class="text-muted mb-5 fs-5">
+                            Tertarik dengan profil saya atau memiliki proyek yang bisa kita kerjakan bersama?<br>
+                            Jangan ragu untuk menghubungi saya melalui kontak di bawah ini.
+                        </p>
 
-                        <div class="d-flex flex-wrap justify-content-center">
+                        <div class="d-flex flex-wrap justify-content-center gap-3">
                             <a href="mailto:tammamtanjung1405@gmail.com" class="contact-btn btn-email">
                                 <i class="fa-solid fa-envelope"></i> Email Saya
                             </a>
                             <a href="https://wa.me/628990436397" target="_blank" class="contact-btn btn-wa">
-                                <i class="fa-brands fa-whatsapp fs-5"></i> WhatsApp
+                                <i class="fa-brands fa-whatsapp fs-4"></i> WhatsApp
                             </a>
                         </div>
 
-                        <div class="social-links">
+                        <div class="social-links d-flex justify-content-center">
                             <a href="#" target="_blank" class="social-link" title="LinkedIn">
                                 <i class="fa-brands fa-linkedin-in"></i>
                             </a>
                             <a href="#" target="_blank" class="social-link" title="GitHub">
                                 <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" target="_blank" class="social-link" title="Instagram">
+                                <i class="fa-brands fa-instagram"></i>
                             </a>
                         </div>
                     </div>
@@ -778,34 +386,12 @@
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Custom JS -->
-    <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Close navbar on mobile when a link is clicked
-        const navLinks = document.querySelectorAll('.nav-link');
-        const menuToggle = document.getElementById('navbarNav');
-        const bsCollapse = new bootstrap.Collapse(menuToggle, { toggle: false });
-        navLinks.forEach((l) => {
-            l.addEventListener('click', () => {
-                if (menuToggle.classList.contains('show')) {
-                    bsCollapse.toggle();
-                }
-            })
-        });
-    </script>
+    <!-- Custom Premium JS -->
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
